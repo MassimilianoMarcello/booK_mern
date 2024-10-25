@@ -41,15 +41,15 @@ const bookControllers = {
         const { id } = req.params;
         const { title, author, category, image } = req.body;
         try {
-            const updatedBook = await Book.findOneAndUpdate({ _id: id });
+            const updatedBook = await Book.updateOne(
+                { _id: id },
+                { $set: { title, author, category, image } }
+            );
             if (!updatedBook) {
                 return res.status(404).json({ message: 'Book not found' });
+            } else {
+                res.status(200).json({ message: 'Book updated successfully' });
             }
-            updatedBook.title = title;
-            updatedBook.author = author;
-            updatedBook.category = category;
-            updatedBook.image = image;
-            updatedBook.save();
         } catch (err) {
             res.status(500).json({ message: err.message });
         }
@@ -57,11 +57,12 @@ const bookControllers = {
     deleteBook: async (req, res) => {
         const { id } = req.params;
         try {
-            const deletedBook = await Book.findOneAndDelete({ _id: id });
+            const deletedBook = await Book.deleteOne({ _id: id });
             if (!deletedBook) {
                 return res.status(404).json({ message: 'Book not found' });
+            } else {
+                res.status(200).json({ message: 'Book deleted successfully' });
             }
-            res.status(200).json({ message: 'Book deleted successfully' });
         } catch (err) {
             res.status(500).json({ message: err.message });
         }

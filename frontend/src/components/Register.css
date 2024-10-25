@@ -1,0 +1,51 @@
+.register {
+    width: 400px;
+    margin: 60px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.register input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.register button {
+    padding: 12px;
+    background-color: #38b000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.register button:hover {
+    background-color: #30a800;
+    transform: translateY(-2px);
+}
+
+.register .error {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    font-size: 15px;
+    text-align: center;
+}
+
